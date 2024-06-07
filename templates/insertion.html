@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catégories</title>
+    <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul class="nav-left">
+                <li><a href="/">Accueil</a></li>
+                <li><a href="/affichages_admin">Affichages</a></li>
+                <li><a href="/insertion">Insertion</a></li>
+            </ul>
+            <ul class="nav-right">
+                <li><a href="/logout">Déconnexion</a></li>
+            </ul>
+        </nav>
+    </header>    
+    <main>
+        <h1>Catégories</h1>
+        <div class="categories">
+            <div class="category" onclick="showCategory('motos')">Motos</div>
+            <div class="category" onclick="showCategory('lieux')">Lieux de vente</div>
+            <div class="category" onclick="showCategory('marques')">Marques</div>
+            <div class="category" onclick="showCategory('ventes')">Ventes</div>
+        </div>
+        <div id="motos" class="category-content">
+            <h2>Motos</h2>
+            <form action="/insert_moto" method="post" onsubmit="return validateForm('motos')">
+                <input type="text" name="modele" placeholder="Modèle" required>
+                <input type="number" name="annee" placeholder="Année" min="1900" max="2099" required>
+                <input type="number" name="cylindree" placeholder="Cylindrée (en cm³)" required>
+                <input type="number" name="puissance" placeholder="Puissance (en chevaux)" step="0.1" required>
+                <input type="text" name="immatriculation" placeholder="Immatriculation" required>
+                <input type="number" name="prix_neuf" placeholder="Prix Neuf" required>
+                <select name="idMarque" required>
+                    <!--marques_dropdown-->
+                </select>                
+                <button type="submit">Insérer Moto</button>
+            </form>
+            <form action="/upload_csv" method="post" enctype="multipart/form-data">
+                <input type="file" name="file" accept=".csv" required>
+                <input type="hidden" name="category" value="motos">
+                <button type="submit">Importer CSV</button>
+            </form>
+        </div>   
+        <div id="lieux"  class="category-content">
+            <h2>Lieux de vente</h2>
+            <form action="/insert_lieux_de_ventes" method="post" onsubmit="return validateForm('lieux')">
+                <input type="text" name="adresse" placeholder="Adresse" required>
+            <input type="text" name="codePostal" placeholder="Code Postal" pattern="\d{5}" title="Le code postal doit contenir 5 chiffres." required>
+            <input type="text" name="ville" placeholder="Ville" required>
+            <input type="text" name="nomMagasin" placeholder="Nom du Magasin" >
+                <button type="submit">Insérer Lieux de Ventes</button>
+            </form>
+            <form action="/upload_csv" method="post" enctype="multipart/form-data">
+                <input type="file" name="file" accept=".csv" required>
+                <input type="hidden" name="category" value="lieux">
+                <button type="submit">Importer CSV</button>
+            </form>
+        </div> 
+        <div id="marques" class="category-content">
+            <h2>Marques</h2>
+            <form action="/insert_marque" method="post" onsubmit="return validateForm('marques')">
+                <input type="text" name="nom" placeholder="Nom" required>
+                <input type="text" name="nationalite" placeholder="Nationalité" required>
+                <button type="submit">Insérer Marque</button>
+            </form>
+            <form action="/upload_csv" method="post" enctype="multipart/form-data">
+                <input type="file" name="file" accept=".csv" required>
+                <input type="hidden" name="category" value="marques">
+                <button type="submit">Importer CSV</button>
+            </form>
+        </div>
+        <div id="ventes" class="category-content">
+            <h2>Ventes</h2>
+            <form action="/insert_ventes" method="post" onsubmit="return validateForm('ventes')">
+                <input type="number" name="prix_occasion" placeholder="Prix Occasion" required>
+                <input type="number" name="kilometres" placeholder="Kilomètres" required>
+                <select name="idMoto" required>
+                    <!--motos_dropdown--> 
+                </select>
+                <select name="idLieu" required>
+                    <!--lieux_dropdown-->
+                </select>
+                <button type="submit">Insérer Ventes</button>
+            </form>
+            <form action="/upload_csv" method="post" enctype="multipart/form-data">
+                <input type="file" name="file" accept=".csv" required>
+                <input type="hidden" name="category" value="ventes">
+                <button type="submit">Importer CSV</button>
+            </form>
+        </div>
+    </main>
+    <!-- Modal for login -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('loginModal')">&times;</span>
+            <h2>Connexion</h2>
+            <form>
+                <label for="username">Nom d'utilisateur</label>
+                <input type="text" id="username" name="username" required>
+                <label for="password">Mot de passe</label>
+                <input type="password" id="password" name="password" required>
+                <button type="submit">Se connecter</button>
+                <p>Pas encore de compte ? <a href="#" onclick="openModal('signupModal'); closeModal('loginModal');">Inscrivez-vous</a></p>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal for signup -->
+    <div id="signupModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('signupModal')">&times;</span>
+            <h2>Inscription</h2>
+            <form>
+                <label for="newUsername">Nom d'utilisateur</label>
+                <input type="text" id="newUsername" name="newUsername" required>
+                <label for="newPassword">Mot de passe</label>
+                <input type="password" id="newPassword" name="newPassword" required>
+                <button type="submit">S'inscrire</button>
+            </form>
+        </div>
+    </div>
+
+    <script src ="/static/js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catégories</title>
+    <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul class="nav-left">
+                <li><a href="/">Accueil</a></li>
+                <li><a href="/affichages_authentifie">Affichages</a></li>
+            </ul>
+            <ul class="nav-right">
+                <li><a href="/logout">Déconnexion</a></li>
+            </ul>
+        </nav>
+    </header>    
+    <main>
+        <h1>Catégories</h1>
+        <div class="categories">
+            <div class="category" onclick="showCategory('motos')">Motos</div>
+            <div class="category" onclick="showCategory('lieux')">Lieux de vente</div>
+            <div class="category" onclick="showCategory('marques')">Marques</div>
+            <div class="category" onclick="showCategory('ventes')">Ventes</div>
+        </div>
+        <div id="motos" class="category-content">
+            <h2>Motos</h2>
+            <div class="button-container">
+                <button onclick="displayMotos('all')">Afficher toutes les motos</button>
+                <button onclick="displayMotos('byYear')">Afficher les motos par année</button>
+                <button onclick="displayMotos('byMarque')">Afficher les motos par marque</button>
+            </div>
+            <div id="motosAll" class="content-div">
+                <!--table_motos-->
+            </div>
+            <div id="motosByYear" class="content-div">
+                <p>Sélectionnez une année :</p>
+                <select id="yearSelect">
+                    <!--dropdown_years-->
+                </select>
+                <div id="yearResults"></div>
+                <button onclick="searchByYear()">Afficher</button>
+            </div>
+            <div id="motosByMarque" class="content-div">
+                <p>Sélectionnez une marque :</p>
+                <select id="marqueSelect">
+                    <!--dropdown_marques-->
+                </select>
+                <div id="marqueResults"></div>
+                <button onclick="searchByMarque()">Afficher</button>
+            </div>
+        </div>   
+        <div id="lieux" class="category-content">
+            <h2>Lieux de vente</h2>
+            <button onclick="showLieux()">Afficher tous les lieux de vente</button>
+            <div id="lieuxAll">
+                <!--table_lieux_de_vente-->
+            </div>
+        </div> 
+        <div id="marques" class="category-content">
+            <h2>Marques</h2>
+            <button onclick="showMarque()">Afficher toutes les marques</button>
+            <div id="marquesAll">
+                <!--table_marques-->
+            </div>
+        </div>
+        <div id="ventes" class="category-content">
+            <h2>Ventes</h2>
+            <button onclick="showVentes()">Afficher toutes les ventes</button>
+            <div id="ventesAll">
+                <!--table_ventes-->
+            </div>
+        </div>
+    </main>
+    <!-- Modal for login -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('loginModal')">&times;</span>
+            <h2>Connexion</h2>
+            <form>
+                <label for="username">Nom d'utilisateur</label>
+                <input type="text" id="username" name="username" required>
+                <label for="password">Mot de passe</label>
+                <input type="password" id="password" name="password" required>
+                <button type="submit">Se connecter</button>
+                <p>Pas encore de compte ? <a href="#" onclick="openModal('signupModal'); closeModal('loginModal');">Inscrivez-vous</a></p>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal for signup -->
+    <div id="signupModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('signupModal')">&times;</span>
+            <h2>Inscription</h2>
+            <form>
+                <label for="newUsername">Nom d'utilisateur</label>
+                <input type="text" id="newUsername" name="newUsername" required>
+                <label for="newPassword">Mot de passe</label>
+                <input type="password" id="newPassword" name="newPassword" required>
+                <button type="submit">S'inscrire</button>
+            </form>
+        </div>
+    </div>
+
+    <script src ="/static/js/script.js"></script>
+</body>
+</html>

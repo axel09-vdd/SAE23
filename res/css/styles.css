@@ -1,0 +1,297 @@
+/* Reset de base */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+}
+
+header {
+    background-color: #333;
+    color: white;
+    padding: 10px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+}
+
+.nav-left {
+    justify-content: flex-start;
+}
+
+.nav-right {
+    justify-content: flex-end;
+}
+
+nav ul li {
+    display: inline;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 14px 20px;
+    display: block;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+nav ul li a:hover {
+    background-color: #555;
+    color: #ffdd57;
+}
+
+main {
+    padding: 20px;
+    text-align: center;
+}
+
+.categories {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.category {
+    background-color: #f4f4f4;
+    border: 1px solid #ddd;
+    padding: 20px;
+    margin: 10px;
+    flex: 1 1 200px;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+.category:hover {
+    background-color: #e0e0e0;
+    transform: scale(1.05);
+}
+
+.category-content {
+    display: none;
+    margin-top: 20px;
+}
+
+button {
+    padding: 10px;
+    background-color: #ffdd57;
+    color: #333;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+button:hover {
+    background-color: #ffcc33;
+    transform: scale(1.05);
+}
+
+/* Modal styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 500px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.close:hover,
+.close:focus {
+    color: #ffdd57;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label,
+input,
+button {
+    margin: 10px 0;
+}
+
+h1 {
+    font-size: 2.5em;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+p {
+    font-size: 1.2em;
+    line-height: 1.6;
+    color: #555;
+}
+
+/* Style de base pour le tableau */
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+/* Style des cellules */
+td, th {
+    padding: 8px;
+    border: 1px solid #dddddd;
+    text-align: left;
+}
+
+/* Style des en-têtes */
+th {
+    background-color: #f2f2f2;
+}
+
+/* Effet de survol */
+tr:hover {
+    background-color: #f5f5f5;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    table {
+        width: 100%;
+    }
+}
+
+#lieuxAll {
+    display: none;
+}
+
+/* Styles pour le diaporama */
+.slideshow-container {
+    max-width: 1000px;
+    position: relative;
+    margin: auto;
+}
+
+.slideshow-container img {
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.slideshow-container img:hover {
+    transform: scale(1.05);
+}
+
+.mySlides {
+    display: none;
+}
+
+.fade {
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+
+@keyframes fade {
+    from { opacity: 0.4; }
+    to { opacity: 1; }
+}
+/* Style des étiquettes */
+label {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+/* Style des inputs */
+input[type="text"],
+input[type="number"],
+select {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus,
+select:focus {
+    border-color: #ffdd57;
+    outline: none;
+}
+
+/* Style des boutons */
+button[type="submit"] {
+    padding: 10px 20px;
+    background-color: #ffdd57;
+    color: #333;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    border-radius: 5px;
+}
+
+button[type="submit"]:hover {
+    background-color: #ffcc33;
+    transform: scale(1.05);
+}
+
+/* Style des boutons */
+button[type="submit"],
+input[type="file"] {
+    padding: 8px 16px;
+    background-color: transparent;
+    color: #333;
+    border: 1px solid #ffdd57;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    border-radius: 5px;
+}
+
+button[type="submit"]:hover,
+input[type="file"]:hover {
+    background-color: #ffdd57;
+    border-color: #ffcc33;
+    color: #333;
+}
+
+/* Style pour l'emplacement du fichier */
+input[type="file"] {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}

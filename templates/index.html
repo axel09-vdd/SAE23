@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accueil</title>
+    <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul class="nav-left">
+                <li><a href="/">Accueil</a></li>
+                <li><a href="/affichages">Affichages</a></li>
+            </ul>
+            <ul class="nav-right" id="navRight">
+                <li><a href="#" onclick="openModal('loginModal')">Connexion</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h1>Bienvenue sur mon site de vente de motos <br/><br/></h1>
+        <p>Ce site propose un affichages de différentes motos que vous pouvez explorer. En vous connectant, vous aurez également la possibilité de participer à des ventes aux enchères. <br/><br/><br/><br/> </p>
+        <div class="slideshow-container">
+            <div class="mySlides fade">
+                <img src="/static/images/300_tpi_jaune.jpg" style="width:50%">
+            </div>
+            <div class="mySlides fade">
+                <img src="/static/images/450_excf_blanc.jpg" style="width:50%">
+            </div>
+            <div class="mySlides fade">
+                <img src="/static/images/450_excf_bleu.jpg style="width:50%">
+            </div>
+            <div class="mySlides fade">
+                <img src="/static/images/450_excf_rose.jpg"width:50%">
+            </div>
+            <div class="mySlides fade">
+                <img src="/static/images/R1.jpg" style="width:50%">
+            </div>
+        </div>
+    </main>
+
+    <!-- Balise pour afficher le message de connexion -->
+    <div id="login_message"><!--login_message--></div>
+    <!-- Modal for login -->
+    <div id="loginModal" class="modal" >
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('loginModal')">&times;</span>
+            <h2>Connexion</h2>
+            <form method="post" action="/login" onsubmit="return validateInput()">
+                <label for="username">Nom d'utilisateur</label>
+                <input type="text" id="username" name="username" required>
+                <label for="password">Mot de passe</label>
+                <input type="password" id="password" name="password" required>
+                <button type="submit">Se connecter</button>
+                
+                <p>Pas encore de compte ? <a href="#" onclick="openModal('signupModal'); closeModal('loginModal');">Inscrivez-vous</a></p>
+            </form>
+        </div>
+    </div>
+
+    <!-- Balise pour afficher le message d'inscription -->
+    <div id="signup_message"><!--signup_message--></div>
+    <!-- Modal for signup -->
+    <div id="signupModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('signupModal')">&times;</span>
+            <h2>Inscription</h2>
+            <form method="post" action="/signup" onsubmit="return validateInput()">
+                <label for="newUsername">Nom d'utilisateur</label>
+                <input type="text" id="newUsername" name="newUsername" required>
+                <label for="newPassword">Mot de passe</label>
+                <input type="password" id="newPassword" name="newPassword" required>
+                <button type="submit">S'inscrire</button>
+                
+            </form>
+        </div>
+    </div>
+
+    <script src="/static/js/script.js"></script>
+</body>
+</html>

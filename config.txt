@@ -1,0 +1,36 @@
+[global]
+server.socket_host: '127.0.0.1'
+server.socket_port: 8080
+
+[Databases]
+driver: "MySQL"
+#driver: "SQLite"
+host: "localhost"
+db : "moto"
+user : "root"
+passwd : 
+port: 3306
+
+[/favicon.ico]
+tools.staticfile.on: True
+tools.staticfile.filename: os.path.join(os.path.abspath(os.getcwd()),'favicon.ico')
+
+[/]
+tools.staticdir.root : os.path.abspath(os.getcwd())
+tools.sessions.on: True
+
+[/static]
+tools.staticdir.on: True
+tools.staticdir.dir: './res'
+
+[/static/css]
+tools.staticdir.on: True
+tools.staticdir.dir: './res/css'
+
+[/static/images]
+tools.staticdir.on: True
+tools.staticdir.dir: './res/images'
+
+[/static/js]
+tools.staticdir.on: True
+tools.staticdir.dir: './res/js'
